@@ -40,7 +40,12 @@ export default function CopilotChat() {
   function handleSend(e) {
     e.preventDefault();
     if (!text.trim() && !attachedFile) return;
-    dispatch(sendMessage({ message: text.trim() || undefined, file: attachedFile || undefined }));
+    dispatch(
+      sendMessage({
+        message: text.trim() || undefined,
+        file: attachedFile || undefined,
+      }),
+    );
     setText("");
     setAttachedFile(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
@@ -59,7 +64,9 @@ export default function CopilotChat() {
           <div className="copilot-header-title-row">
             <span className="copilot-title">🧪 AIVOA Copilot</span>
           </div>
-          <p className="copilot-subtitle">Drop complaint files or paste text below.</p>
+          <p className="copilot-subtitle">
+            Drop complaint files or paste text below.
+          </p>
         </div>
         <span className="online-dot" title="Ready" />
       </div>
@@ -68,13 +75,19 @@ export default function CopilotChat() {
         {messages.length === 0 ? (
           <div className="chat-empty-state">
             <p>
-              Describe a complaint in plain language, or attach a PDF, and I'll fill in the form
-              and run the risk assessment. Once a complaint is logged, just tell me what to
-              change — e.g. "the batch number is actually BMX240602."
+              Describe a complaint in plain language, or attach a PDF, and I'll
+              fill in the form and run the risk assessment. Once a complaint is
+              logged, just tell me what to change — e.g. "the batch number is
+              actually BMX240602."
             </p>
             <div className="chat-suggestion-row">
               {SUGGESTIONS.map((s) => (
-                <button key={s.label} type="button" className="chip-btn" onClick={() => handleSuggestion(s.text)}>
+                <button
+                  key={s.label}
+                  type="button"
+                  className="chip-btn"
+                  onClick={() => handleSuggestion(s.text)}
+                >
                   {s.label}
                 </button>
               ))}
@@ -83,11 +96,17 @@ export default function CopilotChat() {
         ) : (
           messages.map((m, i) => (
             <div key={i}>
-              {m.attachmentName && <ChatAttachmentChip name={m.attachmentName} />}
+              {m.attachmentName && (
+                <ChatAttachmentChip name={m.attachmentName} />
+              )}
               {m.content && (
                 <div className={`chat-row ${m.role}`}>
-                  {m.role === "assistant" && <div className="chat-avatar">AI</div>}
-                  <div className={`chat-bubble ${m.isError ? "is-error" : ""}`}>{m.content}</div>
+                  {m.role === "assistant" && (
+                    <div className="chat-avatar">AI</div>
+                  )}
+                  <div className={`chat-bubble ${m.isError ? "is-error" : ""}`}>
+                    {m.content}
+                  </div>
                 </div>
               )}
             </div>
@@ -110,12 +129,18 @@ export default function CopilotChat() {
       </div>
 
       <div className="copilot-input-area">
-        {error && chatStatus === "failed" && <div className="error-banner">{error}</div>}
+        {error && chatStatus === "failed" && (
+          <div className="error-banner">{error}</div>
+        )}
 
         {attachedFile && (
           <div className="attached-file-preview">
             📎 {attachedFile.name}
-            <button type="button" onClick={() => setAttachedFile(null)} aria-label="Remove attachment">
+            <button
+              type="button"
+              onClick={() => setAttachedFile(null)}
+              aria-label="Remove attachment"
+            >
               ×
             </button>
           </div>
@@ -153,7 +178,6 @@ export default function CopilotChat() {
             {isLoading ? "…" : "➤"}
           </button>
         </form>
-        <p className="copilot-footer">POWERED BY LANGGRAPH</p>
       </div>
     </div>
   );
