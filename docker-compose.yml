@@ -1,0 +1,21 @@
+# Spins up a local Postgres instance for development.
+# Run: docker compose up -d
+# Then set DATABASE_URL in backend/.env to:
+#   postgresql+psycopg2://postgres:postgres@localhost:5432/pharma_complaints
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: pharma_complaints
+    ports:
+      - "5432:5432"
+    volumes:
+      - pharma_pg_data:/var/lib/postgresql/data
+
+volumes:
+  pharma_pg_data:
