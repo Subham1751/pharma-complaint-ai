@@ -1,19 +1,22 @@
-# QualiTrace — Sentinel
+# QualiTrace — Agentic QMS Copilot for Pharmaceutical Complaints
 
-**QualiTrace** is an agentic QMS copilot for pharmaceutical manufacturers. Describe a complaint in plain language or upload a PDF, and **Sentinel** fills the complaint form, classifies risk, and recommends root causes and CAPA.
+QualiTrace is a full-stack AI system that automates customer complaint intake for
+pharmaceutical manufacturers (API and FDF). Instead of filling in a long compliance
+form by hand, a QA reviewer talks to **Sentinel**, the built-in copilot: describe a
+complaint in plain language or upload a PDF, and Sentinel fills the complaint form,
+classifies risk, and recommends root causes and corrective actions.
 
-## The three required AI tools
+## What Sentinel can do
 
-| Tool                    | Trigger                                    | What it does                                                                                                                                                                                 |
-| ----------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Log Complaint**       | A fresh message, no active complaint       | Extracts structured fields from a natural-language description and generates the initial risk assessment (severity, root cause, CAPA, completeness).                                         |
-| **Edit Complaint**      | A follow-up message on an active complaint | Parses the correction/update ("the batch number is actually BMX240602"), changes _only_ those fields, preserves everything else, and re-runs the risk assessment against the updated record. |
-| **Document Extraction** | A PDF is attached                          | Extracts text from the PDF and runs the same structured extraction + risk assessment as the Log tool, seeding a new complaint from the document.                                             |
+| Tool                    | Trigger                                    | What it does                                                                                |
+| ----------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| **Log Complaint**       | A new message with no active complaint     | Extracts structured fields and generates the initial risk assessment                        |
+| **Edit Complaint**      | A follow-up message on an active complaint | Changes only the fields you mention, keeps everything else, and re-runs the risk assessment |
+| **Document Extraction** | A PDF is attached                          | Pulls complaint details from the document and seeds a new record                            |
 
-All three tools funnel into one shared LangGraph pipeline (completeness → risk
-classification → root cause → CAPA → duplicate check → summary), so the AI Risk
-Assessment panel is always in sync with whatever is currently in the form — including
-right after an edit.
+All three tools feed one shared LangGraph pipeline: completeness check, risk
+classification, root cause, CAPA, duplicate detection, summary. The risk panel
+therefore always matches the current state of the form.
 
 ## Why routing is deterministic, not model-driven tool-calling
 
