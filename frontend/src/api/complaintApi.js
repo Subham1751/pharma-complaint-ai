@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // In production, set VITE_API_BASE_URL as a build-time env var instead of hardcoding.
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api/v1";
+const BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api/v1";
 
 const client = axios.create({ baseURL: BASE_URL, timeout: 60000 });
 
