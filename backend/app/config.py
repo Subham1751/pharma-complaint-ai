@@ -24,8 +24,8 @@ class Settings(BaseSettings):
 
     # --- Groq (LLM provider) ---
     GROQ_API_KEY: str = ""
-    GROQ_PRIMARY_MODEL: str = "gemma2-9b-it"
-    GROQ_FALLBACK_MODEL: str = "llama-3.3-70b-versatile"
+    GROQ_PRIMARY_MODEL: str = "openai/gpt-oss-20b"
+    GROQ_FALLBACK_MODEL: str = "openai/gpt-oss-120b"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
