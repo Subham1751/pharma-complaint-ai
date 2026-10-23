@@ -62,7 +62,7 @@ export default function CopilotChat() {
       <div className="copilot-header">
         <div>
           <div className="copilot-header-title-row">
-            <span className="copilot-title">🧪 AIVOA Copilot</span>
+            <span className="copilot-title">🧪 Sentinel</span>
           </div>
           <p className="copilot-subtitle">
             Drop complaint files or paste text below.

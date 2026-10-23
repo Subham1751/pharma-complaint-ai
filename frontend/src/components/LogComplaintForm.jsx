@@ -41,7 +41,7 @@ export default function LogComplaintForm() {
           </div>
         </div>
         <div className="form-empty-state">
-          Describe a complaint or upload a document in the AIVOA Copilot panel to get started —
+          Describe a complaint or upload a document in the Sentinel panel to get started —
           this form and the risk assessment below will fill in automatically.
         </div>
       </div>

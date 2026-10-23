@@ -12,14 +12,20 @@ export default function App() {
     <div className="app-shell">
       <header className="app-header">
         <div className="brand">
-          <div className="brand-mark">Rx</div>
+          <div className="brand-mark">QT</div>
           <div>
-            <div className="brand-title">Pharma Complaint AI</div>
-            <div className="brand-subtitle">Customer Complaint Management · QMS Copilot</div>
+            <div className="brand-title">QualiTrace</div>
+            <div className="brand-subtitle">
+              Customer Complaint Management · QMS Copilot
+            </div>
           </div>
         </div>
         {activeComplaintId && (
-          <button type="button" className="btn btn-ghost" onClick={() => dispatch(startNewComplaint())}>
+          <button
+            type="button"
+            className="btn btn-ghost"
+            onClick={() => dispatch(startNewComplaint())}
+          >
             + New complaint
           </button>
         )}

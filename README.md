@@ -1,12 +1,6 @@
-# Pharma Complaint AI — AIVOA Copilot
+# QualiTrace — Sentinel
 
-An AI-powered Customer Complaint Management System for pharmaceutical manufacturing,
-built for the AIVOA Round 1 AI Product Engineer (Intern) assessment.
-
-A chat-based **AIVOA Copilot** on the right drives the **Log Customer Complaint** form
-and its **AI Risk Assessment** on the left — via natural language, PDF upload, or both.
-This mirrors the reference demo: you never fill the form by hand, you tell the copilot
-what happened (or hand it a document) and it does the data entry and risk reasoning.
+**QualiTrace** is an agentic QMS copilot for pharmaceutical manufacturers. Describe a complaint in plain language or upload a PDF, and **Sentinel** fills the complaint form, classifies risk, and recommends root causes and CAPA.
 
 ## The three required AI tools
 

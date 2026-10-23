@@ -1,5 +1,5 @@
 """
-LangGraph nodes for the AIVOA Copilot agent.
+LangGraph nodes for the Sentinel agent.
 
 Three "tools" (each a small subgraph of nodes) feed into one shared risk-
 assessment pipeline, so the form and the AI Risk Assessment section are

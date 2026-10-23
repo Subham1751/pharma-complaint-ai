@@ -7,7 +7,7 @@ const BASE_URL =
 const client = axios.create({ baseURL: BASE_URL, timeout: 60000 });
 
 /**
- * Send one turn to the AIVOA Copilot. The backend decides which of the
+ * Send one turn to the Sentinel. The backend decides which of the
  * three tools to run based on what's provided:
  *   - `file` present                          -> Document Extraction Tool
  *   - no file, `complaintId` present           -> Edit Complaint Tool

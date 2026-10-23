@@ -1,5 +1,5 @@
 """
-The AIVOA Copilot chat endpoint — the single entry point for all three
+The Sentinel chat endpoint — the single entry point for all three
 required AI tools. Which tool runs is decided deterministically from the
 shape of the request (see graph.py's routing comment for the rationale):
 

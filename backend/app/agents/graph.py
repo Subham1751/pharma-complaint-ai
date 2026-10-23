@@ -1,5 +1,5 @@
 """
-LangGraph workflow definition for the AIVOA Copilot.
+LangGraph workflow definition for the Sentinel.
 
 Graph shape:
 
